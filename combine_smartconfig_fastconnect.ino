@@ -13,7 +13,7 @@
 
 // Constants
 unsigned int timeout = 30000;             // Milliseconds
-//char remote_host[] = "www.sparkfun.com";  // Host to ping
+
 unsigned int num_pings = 3;    // Number of times to ping
 char server[] = "data.sparkfun.com";
 
@@ -26,15 +26,13 @@ SFE_CC3000_Client client = SFE_CC3000_Client(wifi);
 // Phant Stuff //
 /////////////////
 const String publicKey = "yA6dXAGooNcw1Rdwld6j";
-const String privateKey = "4W5EJWeaaBUe7bBerBZM";
+const String privateKey = "[PRIVATE KEY]";
 const byte NUM_FIELDS = 1;
 const String fieldNames[NUM_FIELDS] = {"photosensor"};
 String fieldData[NUM_FIELDS];
 
 
 const int lightPin = A0;
-//String name = "Photosensor";
-
 
 
 void setup() {
@@ -157,7 +155,7 @@ void postData()
   }
 
   // Post the data! Request should look a little something like:
-  // GET /input/publicKey?private_key=privateKey&light=1024&switch=0&time=5201 HTTP/1.1\n
+  // GET /input/publicKey?private_key=privateKey&photosensor=sensorValues&time=5201 HTTP/1.1\n
   // Host: data.sparkfun.com\n
   // Connection: close\n
   // \n
